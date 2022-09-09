@@ -8,6 +8,10 @@ $auther = new Auther();
 $Users = new Users();
 $user = $Users->getDetail($user_id);
 $auther->login_chk();
+
+$user_name = isset($_POST['user_name']) ?$_POST['user_name'] : $user['user_name'];
+$mail_adress = isset($_POST['mail_adress']) ?$_POST['mail_adress'] : $user['mail_adress'];
+$pass_word = isset($_POST['pass_word']) ?$_POST['pass_word'] : '';
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,33 +26,30 @@ $auther->login_chk();
     <title>ユーザー登録</title>
   </head>
   <body>
-    <h1>ユーザーサイト</h1>        
-        <form method="POST" action="./delete_comp.php">
-            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+    <h1>ユーザーサイト</h1>
+
+    <form method="POST" action="./update_check.php">
+      <input type="hidden" name="user_id" value="<?php echo $user[ 'user_id' ]; ?>">
             <div class="row mb-3">
                 <label for="user_name" class="col-sm-2 col-form-label">User_Name</label>
                 <div class="col-sm-10">
-                <input type="text" readonly class="form-control <?php if( !empty($errors['user_name']) ) echo "border-danger text-danger"; ?>" id="name" name="user_name" value ="<?php echo $user['user_name'];?>">
+                <input type="text" class="form-control" id="name" name="user_name" value ="<?php echo $user_name;?>">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="mail_adress" class="col-sm-2 col-form-label">Mail_Adress</label>
+                <label for="mail_adress" class="col-sm-2 col-form-label">Email_Adress</label>
                 <div class="col-sm-10">
-                <input type="mail" readonly class="form-control <?php if( !empty($errors['mail_adress']) ) echo "border-danger text-danger"; ?>" id="mail" name="mail_adress" value ="<?php echo $user['mail_adress'];?>">
+                <input type="email" class="form-control" id="mail" name="mail_adress" value ="<?php echo $mail_adress;?>">
                 </div>
             </div>
-             <div class="row mb-3">
+            <div class="row mb-3">
                 <label for="pass_word" class="col-sm-2 col-form-label">PassWord</label>
                 <div class="col-sm-10">
-                <input type="password" readonly class="form-control <?php if( !empty($errors['pass_word']) ) echo "border-danger text-danger"; ?>" id="pass"name="pass_word" value ="<?php echo str_repeat("・", 6 ); ?>">
+                <input type="password" class="form-control" id="pass"name="pass_word" value ="<?php echo $pass_word;?>">
                 </div>
             </div>
-            
-            <button type= "submit" class="btn btn-primary">削除</button>
-           
+            <button type= "submit" class="btn btn-primary">更新</button>
         </form>
-        <a href= "./detail.php?user_id=<?php echo $user_id; ?>"class="btn btn-primary">Back</a>
-    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

@@ -1,9 +1,8 @@
 <?php
 
-$user_name = isset($_POST['user_name']) ? $_POST['user_name'] : "";
-$mail_address  = isset($_POST['mail_address ']) ? $_POST['mail_address '] : "";
-$pass_word = isset($_POST['pass_word']) ? $_POST['pass_word'] : "";
-
+$user_name = isset($_POST['user_name']) ?$_POST['user_name'] : '';
+$mail_adress = isset($_POST['mail_adress']) ?$_POST['mail_adress'] : '';
+$pass_word = isset($_POST['pass_word']) ?$_POST['pass_word'] : '';
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,23 +17,29 @@ $pass_word = isset($_POST['pass_word']) ? $_POST['pass_word'] : "";
     <title>ユーザー登録</title>
   </head>
   <body>
-    <h1>ユーザー登録</h1>
-    <form method="POST" action="./check.php">
-  <div class="mb-3">
-    <label for="exampleInputName" class="form-label">UserName</label>
-    <input type="text" class="form-control"  id="exampleInputName" name="user_name" aria-describedby="emailHelp" value="<?php echo $user_name; ?>">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail" class="form-label">mail_address </label>
-    <input type="email" class="form-control"  id="exampleInputEmail" name="mail_address" aria-describedby="emailHelp" value="<?php echo $mail_address ; ?>">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword" class="form-label">pass_word</label>
-    <input type="pass_word" class="form-control" id="exampleInputPassword" name="pass_word" value="<?php echo $pass_word; ?>">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <h1>ユーザーサイト</h1>
 
+    <form method="POST" action="./check.php">
+            <div class="row mb-3">
+                <label for="user_name" class="col-sm-2 col-form-label">User_Name</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="user_name" value ="<?php echo $user_name;?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="mail_adress" class="col-sm-2 col-form-label">Email_Adress</label>
+                <div class="col-sm-10">
+                <input type="email" class="form-control" id="mail" name="mail_adress" value ="<?php echo $mail_adress;?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="pass_word" class="col-sm-2 col-form-label">PassWord</label>
+                <div class="col-sm-10">
+                <input type="password" class="form-control" id="pass"name="pass_word" value ="<?php echo $pass_word;?>">
+                </div>
+            </div>
+            <button type= "submit" class="btn btn-primary">登録</button>
+        </form>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
